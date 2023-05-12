@@ -4,4 +4,4 @@ from patients.models import Patient
 class PatientSerializer(serializers.ModelSerializer):
     class Meta:
         model = Patient
-        fields = ['id', 'name', 'email', 'phone_number', 'created_at', 'updated_at']
+        fields = ['id', 'name', 'email', 'phoneNumber', 'created_at', 'updated_at']
