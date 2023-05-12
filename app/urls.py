@@ -1,5 +1,5 @@
 """
-URL configuration for nutritionist_record project.
+URL configuration for app project.
 
 The `urlpatterns` list routes URLs to views. For more information please see:
     https://docs.djangoproject.com/en/4.2/topics/http/urls/
@@ -16,8 +16,14 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path, include
+from patients.viewsets import PatientViewSet
+from rest_framework import routers
+
+router = routers.DefaultRouter()
+router.register(r'patients', PatientViewSet)
 
 urlpatterns = [
+    path('', include(router.urls)),
+    path('api-auth/', include('rest_framework.urls', namespace='rest_framework')),
     path('admin/', admin.site.urls),
-    path('api-auth/', include('rest_framework.urls'))
 ]
