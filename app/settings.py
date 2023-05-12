@@ -39,6 +39,7 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'patients',
     'personalInformations',
+    'anthropometricEvaluations',
     'rest_framework'
 ]
 

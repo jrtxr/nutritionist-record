@@ -17,10 +17,11 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import path, include
 from patients.viewsets import PatientViewSet
+from personalInformations.viewsets import PersonalInformationViewSet
+from anthropometricEvaluations.viewsets import AnthropometricEvaluation
 from rest_framework import routers
 
 router = routers.DefaultRouter()
-router.register(r'patients', PatientViewSet)
 
 urlpatterns = [
     path('', include(router.urls)),

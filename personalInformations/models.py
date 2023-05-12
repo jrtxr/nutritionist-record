@@ -1,4 +1,5 @@
 from django.db import models
+from patients.models import Patient
 
 class PersonalInformation(models.Model):
     created_at = models.DateTimeField(auto_now_add=True)
@@ -15,6 +16,7 @@ class PersonalInformation(models.Model):
     profession = models.CharField(max_length=50, blank=True, default='')
     clinicalHistory = models.TextField(max_length=100, blank=True, default='')
     objective = models.TextField(max_length=100, blank=True, default='')
+    patient = models.ForeignKey(Patient, on_delete=models.CASCADE, blank=True, null=True)
 
 class Meta:
     ordering = ['created_at']
