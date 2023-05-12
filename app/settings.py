@@ -40,6 +40,7 @@ INSTALLED_APPS = [
     'patients',
     'personalInformations',
     'anthropometricEvaluations',
+    'medicalInformations',
     'rest_framework'
 ]
 

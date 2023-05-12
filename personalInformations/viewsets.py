@@ -1,6 +1,6 @@
 from rest_framework.viewsets import ModelViewSet
-from personalInformations.models import PersonalInformation
-from personalInformations.serializer import PersonalInformationSerializer
+from .models import PersonalInformation
+from .serializers import PersonalInformationSerializer
 
 class PersonalInformationViewSet(ModelViewSet):
     queryset = PersonalInformation.objects.all()
