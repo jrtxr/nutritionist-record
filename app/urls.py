@@ -18,10 +18,16 @@ from django.contrib import admin
 from django.urls import path, include
 from patients.viewsets import PatientViewSet
 from personalInformations.viewsets import PersonalInformationViewSet
-from anthropometricEvaluations.viewsets import AnthropometricEvaluation
+from medicalInformations.viewsets import MedicalInformationViewSet
+from anthropometricEvaluations.viewsets import AnthropometricEvaluationViewSet
 from rest_framework import routers
 
 router = routers.DefaultRouter()
+router.register(r'pacientes', PatientViewSet)
+router.register(r'dados-pessoais', PersonalInformationViewSet)
+router.register(r'dados-antropometricos', AnthropometricEvaluationViewSet)
+router.register(r'dados-medicos', MedicalInformationViewSet)
+
 
 urlpatterns = [
     path('', include(router.urls)),

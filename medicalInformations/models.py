@@ -22,14 +22,14 @@ class AlterationDigestiveSystem(models.Model):
     alteration = models.CharField(max_length=50, blank=True, default='')
 
 class Diet(models.Model):
-    schedule = models.CharField(max_length=50, blank=True, default='')
+    schedule = models.TimeField(max_length=50, blank=True, default='')
     food = models.CharField(max_length=50, blank=True, default='')
     quantity = models.CharField(max_length=50, blank=True, default='')
 
 class MedicalInformation(models.Model):
     created_at = models.DateTimeField(auto_now_add=True)
     updated_at = models.DateTimeField(auto_now=True)
-    weightChanges = models.IntegerField(blank=True)
+    weightChanges = models.IntegerField(blank=True, null=True)
     physicalExam =  models.ManyToManyField(Condiction)
     obsPhysicalExam = models.TextField(max_length=50, blank=True, default='')
     alterationDisgestiveSystem = models.ManyToManyField(AlterationDigestiveSystem)
@@ -37,7 +37,7 @@ class MedicalInformation(models.Model):
     intestinalChanges = models.CharField(max_length=50, blank=True, default='')
     obsIntestinalChanges = models.TextField(blank=True, default='')
     waterConsumption = models.CharField(max_length=50, blank=True, default='') 
-    restrictions = models.ForeignKey(Restriction, on_delete=models.CASCADE)
+    restrictions = models.ManyToManyField(Restriction)
     useOfMedicines = models.ManyToManyField(MedicationUse)
     alcoholicBeverage = models.CharField(max_length=50, blank=True, default='')
     smoking = models.CharField(max_length=50, blank=True, default='')
